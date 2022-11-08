@@ -10,15 +10,15 @@
 
 int main(int argc, char *argv[])
 {
-	int i;
+	int i = 0;
 
-	if (i == 1)
+	if (i > 0)
 	{
-		return (0);
-	}
-	for (i > 1; i < argc; i++)
-	{
-		printf("%s\n", argv[i]);
+		while (i < argc)
+		{
+			printf("%s\n", argv[i]);
+			i++;
+		}
 	}
 	return (0);
 }
