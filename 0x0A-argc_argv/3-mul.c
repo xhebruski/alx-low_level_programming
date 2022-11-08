@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "main.h"
+#include <stdlib.h>
 
 /**
   * main - print mul of 2 numbers
