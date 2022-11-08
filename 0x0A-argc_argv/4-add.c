@@ -1,60 +1,38 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h>
-#include <string.h>
-#include "main.h"
-
+#include <inttypes.h>
 /**
-  * check_num - check - string for digit
-  * @str: array str
-  * Return: 0
-  */
-
-int check_num(char *str)
-{
-	unsigned int i;
-
-	i = 0;
-	while (i < strlen(str))
-	{
-		if (!isdigit(str[i]))
-		{
-			return (0);
-		}
-		i++;
-	}
-	return (1);
-}
-
-/**
-  * main - print sum
-  * @argc: counts
+  * main - add positve integers
   * @argv: arguments
-  * Return: 0
+  * @argc: arguments count
+  * Return: 0 or 1
   */
 
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
-	int i;
-	int str_to_int;
 	int sum = 0;
+	int i = 1;
+	int additive = 0;
+	char nope;
 
-	i = 1;
-	while (i < argc)
+	if (argc < 2)
 	{
-		if (check_num(argv[i]))
+		printf("0\n");
+		return (0);
+	}
+	for (; i < argc; i++)
+	{
+		additive = strtol(argv[i], &nope, 10);
+		if (*nope == '\0')
 		{
-			str_to_int = atoi(argv[i]);
-			sum += str_to_int;
+			sum += additive;
 		}
 		else
 		{
 			printf("Error\n");
 			return (1);
 		}
-		i++
 	}
 	printf("%d\n", sum);
-
 	return (0);
 }
